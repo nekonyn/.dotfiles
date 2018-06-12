@@ -1,0 +1,78 @@
+"---------------------------------------------------------------------------
+" Summary: vimrc
+"  Author: nekonyn
+"---------------------------------------------------------------------------
+
+if &compatible
+  set nocompatible
+endif
+
+function! s:source_rc(path) abort
+  let abspath = resolve(expand('~/.vim/rc/') . a:path)
+  let rcfile = fnameescape(abspath)
+  if filereadable(rcfile)
+    echo 'execute: source ' . rcfile
+    execute 'source' rcfile
+    return
+  else
+    echo 'not open file = ' . rcfile
+  endif
+endfunction
+
+
+" Set augroup
+augroup MyAutoCmd
+  autocmd!
+  
+augroup END
+
+if has('vim_starting')
+  call s:source_rc('init.rc.vim')
+endif
+
+call s:source_rc('dein.rc.vim')
+
+
+"---------------------------------------------------------------------------
+
+" not create backup file settings.
+set nobackup
+set noswapfile
+
+" indent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set showmatch
+
+set shiftround
+
+" encoding
+set encoding=utf-8
+scriptencoding utf-8
+
+set fileencoding=utf-8
+set fileencodings=utf-8,sjis,cp932
+
+set fileformat=unix
+set fileformats=unix,dos,mac
+
+" search
+set incsearch
+set ignorecase
+
+set hlsearch
+
+" us keyboard - change ; to : 
+nnoremap ; :
+nnoremap : ;
+vnoremap : ;
+vnoremap ; :
+
+"---------------------------------------------------------------------------
+
+if has('nvim')
+  call s:source_rc('neovim.rc.vim')
+else
+  call s:source_rc('vim.rc.vim')
+endif
