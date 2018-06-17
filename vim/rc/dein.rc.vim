@@ -25,9 +25,10 @@ call dein#begin(s:path)
 
 let s:toml_path = expand('~/.dotfiles/vim/rc')
 
-call dein#load_toml(s:toml_path . '/dein.toml', {'lazy': 0})
+call dein#load_toml(s:toml_path . '/dein.toml',   {'lazy': 0})
 
-call dein#load_toml(s:toml_path . '/ruby.toml', {'lazy': 1})
+call dein#load_toml(s:toml_path . '/ruby.toml',   {'lazy': 1})
+call dein#load_toml(s:toml_path . '/python.toml', {'lazy': 1})
 
 call dein#end()
 call dein#save_state()
