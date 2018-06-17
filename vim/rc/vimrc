@@ -31,43 +31,7 @@ if has('vim_starting')
 endif
 
 call s:source_rc('dein.rc.vim')
-
-
-"---------------------------------------------------------------------------
-
-" not create backup file settings.
-set nobackup
-set noswapfile
-
-" indent
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set showmatch
-
-set shiftround
-
-" encoding
-set encoding=utf-8
-scriptencoding utf-8
-
-set fileencoding=utf-8
-set fileencodings=utf-8,sjis,cp932
-
-set fileformat=unix
-set fileformats=unix,dos,mac
-
-" search
-set incsearch
-set ignorecase
-
-set hlsearch
-
-" us keyboard - change ; to : 
-nnoremap ; :
-nnoremap : ;
-vnoremap : ;
-vnoremap ; :
+call s:source_rc('common.rc.vim')
 
 "---------------------------------------------------------------------------
 
